@@ -9,41 +9,26 @@ export const Listing = ({ listing }) => {
     <ThemeContext.Consumer>
       {(theme) => {
         return (
-          <div
-            ref={ref}
-            className="card"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              boxShadow:
-                "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
-              width: "300px",
-              height: "100%",
-              margin: "1 1em",
-              background: theme.theme ? "white" : "black",
-            }}
-          >
-            <div
-              style={{ position: "relative", height: "200px", width: "100%" }}
-            >
-              <img alt={listing.title} src={listing.image} height="200px" />
+          <div ref={ref} className="flex flex-col h-full rounded-md">
+            <div>
+              <img
+                alt={listing.title}
+                src={listing.image}
+                className="rounded-xl object-cover h-52 w-52"
+              />
             </div>
-            <div style={{ padding: "0 1em" }}>
-              <h3
-                style={{
-                  marginBottom: ".2em",
-                  color: theme.theme ? "black" : "white",
-                }}
-              >
-                {listing.name}
-              </h3>
-              <span style={{ color: "lightslategrey", fontSize: ".8em" }}>
+            <div className="m-1">
+              <h3 className="font-bold text-xs">{listing.name}</h3>
+              <span className="font-light text-xs">
                 {listing.city},{listing.state}
               </span>
-              <h3 style={{ color: "deeppink" }}>
-                ${new Intl.NumberFormat("en-US").format(listing.price)}
+              <h3 className="font-light text-xs">
+                <span className="font-bold">
+                  ${new Intl.NumberFormat("en-US").format(listing.price)}
+                </span>{" "}
+                night
               </h3>
-              <span style={{ color: "lightslategrey", fontSize: ".8em" }}>
+              <span className="font-light text-xs">
                 {listing.floors} floor, {listing.rooms} rooms, {listing.sqft}ft
               </span>
             </div>

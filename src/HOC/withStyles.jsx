@@ -1,7 +1,7 @@
 export function withStyles(Component) {
   return (props) => {
     const style = {
-      color: "red",
+      color: "white",
       fontSize: "36px",
       // Merge props
       ...props.style,

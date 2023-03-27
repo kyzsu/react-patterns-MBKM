@@ -1,8 +1,11 @@
 import React from "react"
 import { withStyles } from "../HOC/withStyles"
 import { Listing } from "./Listing"
-import { ListingsGrid } from "./ListingsGrid"
+// import { ListingsGrid } from "./ListingsGrid"
 import { ThemeContext } from "../Provider/ThemeToggle"
+import SearchBar from "../Components/SearchBar"
+import Banner from "../Components/Banner"
+import SwitchTheme from "../Components/SwitchTheme"
 
 export default function Listings({ listings }) {
   const Text = (props) => (
@@ -13,14 +16,22 @@ export default function Listings({ listings }) {
   return (
     <ThemeContext.Consumer>
       {({ theme, setTheme }) => (
-        <div>
-          <Title />
-          <button onClick={() => setTheme(!theme)}>Change Theme</button>
-          <ListingsGrid>
+        <div className="max-w-7xl">
+          <Banner>
+            <Title />
+          </Banner>
+          <div className="-mt-5 mx-auto flex justify-center">
+            <SearchBar />
+          </div>
+          {/* <button className="" onClick={() => setTheme(!theme)}>Change Theme</button> */}
+          <SwitchTheme />
+          {/* <ListingsGrid> */}
+          <div className="flex flex-row gap-x-4 m-4">
             {listings.listings.map((listing) => (
               <Listing key={listing.id} listing={listing} />
             ))}
-          </ListingsGrid>
+          </div>
+          {/* </ListingsGrid> */}
         </div>
       )}
     </ThemeContext.Consumer>
