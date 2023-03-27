@@ -17,18 +17,17 @@ export default function Listings({ listings }) {
     <ThemeContext.Consumer>
       {({ theme, setTheme }) => (
         <div className="max-w-7xl">
-          <Banner>
+          <Banner theme={theme}>
             <Title />
           </Banner>
           <div className="-mt-5 mx-auto flex justify-center">
             <SearchBar />
           </div>
-          {/* <button className="" onClick={() => setTheme(!theme)}>Change Theme</button> */}
-          <SwitchTheme />
+          <SwitchTheme theme={theme} setTheme={setTheme} />
           {/* <ListingsGrid> */}
           <div className="flex flex-row gap-x-4 m-4">
             {listings.listings.map((listing) => (
-              <Listing key={listing.id} listing={listing} />
+              <Listing key={listing.id} listing={listing} theme={theme} />
             ))}
           </div>
           {/* </ListingsGrid> */}
