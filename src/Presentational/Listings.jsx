@@ -1,12 +1,17 @@
 import React from "react"
+import { withStyles } from "../HOC/withStyles"
 import { Listing } from "./Listing"
 import { ListingsGrid } from "./ListingsGrid"
 
 export default function Listings({ listings }) {
-  console.log(listings)
+  // const Text = () => <p style={{ fontFamily: "Inter" }}>Hello world!</p>
+  const Title = withStyles(() => (
+    <p style={{ fontFamily: "Inter" }}>Hello world!</p>
+  ))
+
   return (
     <div>
-      <p>Perumahan baru</p>
+      <Title />
       <ListingsGrid>
         {listings.listings.map((listing) => (
           <Listing key={listing.id} listing={listing} />
