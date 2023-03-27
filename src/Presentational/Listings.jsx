@@ -5,10 +5,10 @@ import { ListingsGrid } from "./ListingsGrid"
 import { ThemeContext } from "../Provider/ThemeToggle"
 
 export default function Listings({ listings }) {
-  // const Text = () => <p style={{ fontFamily: "Inter" }}>Hello world!</p>
-  const Title = withStyles(() => (
-    <p style={{ fontFamily: "Inter" }}>Hello world!</p>
-  ))
+  const Text = (props) => (
+    <p style={{ fontFamily: "Inter", ...props.style }}>Hello world!</p>
+  )
+  const Title = withStyles(Text)
 
   return (
     <ThemeContext.Consumer>
