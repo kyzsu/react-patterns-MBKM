@@ -5,11 +5,13 @@ import { ListingsGrid } from "./ListingsGrid"
 export default function Listings({ listings }) {
   console.log(listings)
   return (
-    <ListingsGrid>
+    <div>
       <p>Perumahan baru</p>
-      {listings.listings.map((listing) => (
-        <Listing key={listing.id} listing={listing} />
-      ))}
-    </ListingsGrid>
+      <ListingsGrid>
+        {listings.listings.map((listing) => (
+          <Listing key={listing.id} listing={listing} />
+        ))}
+      </ListingsGrid>
+    </div>
   )
 }

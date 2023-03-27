@@ -5,7 +5,6 @@ import Listings from "../Presentational/Listings"
 
 const ListingsContainer = () => {
   const [listings, setListings] = useState([])
-  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     getListings()
