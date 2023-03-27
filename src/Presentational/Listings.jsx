@@ -3,6 +3,7 @@ import { Listing } from "./Listing"
 import { ListingsGrid } from "./ListingsGrid"
 
 export default function Listings({ listings }) {
+  console.log(listings)
   return (
     <ListingsGrid>
       <p>Perumahan baru</p>

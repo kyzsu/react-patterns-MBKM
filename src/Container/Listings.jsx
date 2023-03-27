@@ -22,7 +22,7 @@ const ListingsContainer = () => {
     }
   }
 
-  if (loading) return <Loading />
+  if (listings.length < 1) return <Loading />
   return <Listings listings={listings} />
 }
 
